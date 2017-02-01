@@ -5,20 +5,25 @@ text{
 }
 
 body {
-    background-color: #c6c7c7;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 
 #chart{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
     top:0;
     left:0;
 }
 
-#question{
+#output{
+    text-align: center;
     top:0;
 }
 
-.result {
-    margin-top: 10%;
+#output .result {
+    color: #000;
 }
 
 .place {

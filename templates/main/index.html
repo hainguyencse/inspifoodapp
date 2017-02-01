@@ -14,24 +14,23 @@
 </head>
 <body>
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-            <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-12">
                 <div id="chart"></div>
+
             </div>
-            <div class="col-sm-6 result">
-                <div id="question">
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="output">
                     <div class="row">
-                        <h1></h1><span><a href="{% url 'food:detail' %}"></a></span>
-                    </div>
-                    <div class="row">
-                        <img width="200"/>
+                        <h3 class="result"></h3><strong><a href="#"></a></strong>
                     </div>
                 </div>
             </div>
         </div>
-      </div>
     </div>
+
     <script type="text/javascript" charset="utf-8">
         var padding = {top:20, right:40, bottom:0, left:0},
             w = 500 - padding.left - padding.right,
@@ -41,22 +40,8 @@
             oldrotation = 0,
             picked = 100000,
             oldpick = [],
-            color = d3.scale.category20();//category20c()
-
-        var data = [
-                    {"label":"Bánh cuốn",  "value":1,  "question":"Does you want to eat Bánh cuốn?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, // padding
-                    {"label":"Bánh giò",  "value":1,  "question":"Does you want to eat Bánh giò?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //font-family
-                    {"label":"Bánh bao",  "value":1,  "question":"Does you want to eat Bánh bao?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //color
-                    {"label":"Phở",  "value":1,  "question":"Does you want to eat Phở?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //font-weight
-                    {"label":"Hoàng thánh",  "value":1,  "question":"Does you want to eat Hoàng thánh?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //font-size
-                    {"label":"Cháo",  "value":1,  "question":"Does you want to eat Cháo?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //background-color
-                    {"label":"Bún bò huế",  "value":1,  "question":"Does you want to eat Bún bò huế?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //nesting
-                    {"label":"Mì vịt tiềm",  "value":1,  "question":"Does you want to eat Mì vịt tiềm?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //bottom
-                    {"label":"Bánh căn",  "value":1,  "question":"Does you want to eat Bánh căn?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //sans-serif
-                    {"label":"Bánh canh", "value":1, "question":"Does you want to eat Bánh canh?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //period
-                    {"label":"Há cảo", "value":1, "question":"Does you want to eat Há cảo?", "photo": "http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg"}, //pound sign
-        ];
-
+            color = d3.scale.category20();
+        var data = JSON.parse("{{response|escapejs}}");
 
         var svg = d3.select('#chart')
             .append("svg")
@@ -144,15 +129,17 @@
                         .attr("fill", "#111");
 
                     //populate question
-                    d3.select("#question h1")
+                    d3.select("#output .result")
                         .text(data[picked].question);
 
-                    d3.select("#question span a")
-                        .text("Let's go!");
+                    var foodgroups = data[picked].slug
+                    var pre_url = "{% url 'food:detail' 'foodgroups' %}";
+                    var url = pre_url.replace('/foodgroups', '/' + foodgroups);
+                    d3.select("#output strong a")
+                        .attr('href', url);
 
-                    //populate photo
-                    d3.select("#question img")
-                        .attr('src', data[picked].photo);
+                    d3.select("#output strong a")
+                        .text("Let's go!");
 
                     oldrotation = rotation;
 
@@ -207,7 +194,6 @@
 
             return array;
         }
-
     </script>
 </body>
 </html>

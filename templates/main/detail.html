@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Wheel of Fortune Bingo</title>
+
+    <script src="{% static 'assets/js/d3.v3.min.js' %}" charset="utf-8"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'custom/css/custom.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'assets/js/style.min.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="back-to-homepage"><a href="{% url 'food:index' %}">Back</a></span>
+                <h1 class="text-center">Which do you want?</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div id="googleMap"></div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="place">
+                        <div class="col-sm-12">
+                            <div class="col-sm-8">
+                                <h4>Chen Restaurant</h4>
+                                <div>
+                                    <span><small>Restaurant</small></span>
+                                </div>
+                                <div>
+                                    <span><small>281 Nguyen Trai</small></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="pull-right">
+                                    <img src="http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg" width="120" height="120"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="place">
+                        <div class="col-sm-12">
+                            <div class="col-sm-8">
+                                <h4>Chen Restaurant</h4>
+                                <div>
+                                    <span><small>Restaurant</small></span>
+                                </div>
+                                <div>
+                                    <span><small>281 Nguyen Trai</small></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="pull-right">
+                                    <img src="http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg" width="120" height="120"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="place">
+                        <div class="col-sm-12">
+                            <div class="col-sm-8">
+                                <h4>Chen Restaurant</h4>
+                                <div>
+                                    <span><small>Restaurant</small></span>
+                                </div>
+                                <div>
+                                    <span><small>281 Nguyen Trai</small></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="pull-right">
+                                    <img src="http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg" width="120" height="120"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="place">
+                        <div class="col-sm-12">
+                            <div class="col-sm-8">
+                                <h4>Chen Restaurant</h4>
+                                <div>
+                                    <span><small>Restaurant</small></span>
+                                </div>
+                                <div>
+                                    <span><small>281 Nguyen Trai</small></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="pull-right">
+                                    <img src="http://noinauchao.vn/wp-content/uploads/2015/09/3-mon-chao-tom-an-dam-cho-be-duoc-yeu-thich-nhat2.jpg" width="120" height="120"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
